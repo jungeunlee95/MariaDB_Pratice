@@ -123,10 +123,22 @@ select a.emp_no, concat(a.first_name, ' ', a.last_name), c.dept_name
   from employees a, dept_emp b, departments c
 where a.emp_no = b.emp_no
 and b.dept_no = c.dept_no
-and to_date = '9999-01-01'
+and to_date = '9999-01-01';
+
+-- left 조인
+select concat(a.first_name, ' ', a.last_name), c.dept_name
+  from employees a
+  left join dept_emp b on a.emp_no = b.emp_no
+  join departments c on b.dept_no = c.dept_no
+where b.dept_no = c.dept_no
+and to_date = '9999-01-01';
 
 -- 실습문제 2:  현재 회사에서 지급되고 있는 급여체계를 반영한 결과를 출력하세요.
 -- 사번,  전체이름, 연봉  이런 형태로 출력하세요.    
+select a.emp_no, concat(a.first_name, ' ', a.last_name), b.salary
+from employees a, salaries b
+where a.emp_no = b.emp_no
+and b.to_date = '9999-01-01';
 
 
 

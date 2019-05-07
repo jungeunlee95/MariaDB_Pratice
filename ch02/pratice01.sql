@@ -1,41 +1,57 @@
--- 집계(통계) SQL 문제입니다.
+-- 기본 SQL 문제
 
--- 문제 1. 
--- 최고임금(salary)과  최저임금을 “최고임금, “최저임금”프로젝션 타이틀로 함께 출력해 보세요. 
--- 두 임금의 차이는 얼마인가요? 함께 “최고임금 – 최저임금”이란 타이틀로 출력해 보세요.
-select max(salary) 최고임금, min(salary) 최저임금, (max(salary)-min(salary)) as '최고임금-최저임금'
+-- 문제1. 사번이 10944인 사원의 이름은(전체 이름) : Remko Zyda
+select concat(first_name, ' ', last_name) name
+from employees
+where emp_no = 10944;
+
+-- 문제2
+-- 전체직원의 다음 정보를 조회하세요. 가장 선임부터 출력이 되도록 하세요. 
+-- 출력은 이름, 성별,  입사일 순서이고 “이름”, “성별”, “입사일로 컬럼 이름을 대체해 보세요.
+select concat(first_name, ' ', last_name) 이름, gender 성별, hire_date 입사일
+from employees
+group by hire_date;
+
+-- 문제3.여직원과 남직원은 각 각 몇 명이나 있나요? 300024
+select gender, count(gender)
+from employees 
+group by gender;
+
+-- 문제4.현재 근무하고 있는 직원 수는 몇 명입니까? (salaries 테이블을 사용합니다.) 
+select count(distinct(emp_no)) 직원수
 from salaries;
 
--- 문제2.
--- 마지막으로 신입사원이 들어온 날은 언제 입니까? 다음 형식으로 출력해주세요.
--- 예) 2014년 07월 10일
-select date_format(hire_date, '%Y년 %m월 %d일')
-from employees
-order by hire_date desc
-limit 1;
+-- 문제5.부서는 총 몇 개가 있나요? 9
+select count(*)
+from departments;
 
--- 문제3.
--- 가장 오래 근속한 직원의 입사일은 언제인가요? 다음 형식으로 출력해주세요.
--- 예) 2014년 07월 10일
-select date_format(hire_date, '%Y년 %m월 %d일')
-from employees
-order by hire_date 
-limit 1;
 
--- 문제4.
--- 현재 이 회사의 평균 연봉은 얼마입니까?
-select avg(salary)
+-- 문제6.현재 부서 매니저는 몇 명이나 있나요?(역임 매너저는 제외)  24
+select count(*)
+from dept_manager;
+
+-- 문제7.전체 부서를 출력하려고 합니다. 순서는 부서이름이 긴 순서대로 출력해 보세요.
+SELECT dept_name
+from departments
+order by length(dept_name) desc;
+
+-- 문제8.현재 급여가 120,000이상 받는 사원은 몇 명이나 있습니까? 8294
+select count(*)
 from salaries
-where to_date = '9999-01-01';
+where salary > 120000;
 
--- 문제5.
--- 현재 이 회사의 최고/최저 연봉은 얼마입니까?
-select max(salary) 최고, min(salary) 최저
-from salaries
-where to_date = '9999-01-01';
+-- 문제9.어떤 직책들이 있나요? 중복 없이 이름이 긴 순서대로 출력해 보세요.
+select distinct(title)
+from titles
+order by length(title) desc;
 
--- 문제6.
--- 최고 어린 사원의 나이와 최 연장자의 나이는?
-select max((year(curdate())-year(birth_date))) 최고나이,
-	   min((year(curdate())-year(birth_date))) 최소나이
-from employees;
+-- 문제10 현재 Enginner 직책의 사원은 총 몇 명입니까? 115003
+select count(*)
+from titles
+where title like 'Engineer';
+
+-- 문제11 사번이 13250(Zeydy)인 지원이 직책 변경 상황을 시간순으로 출력해보세요.
+select from_date, to_date
+from titles
+where emp_no = 13250
+order by from_date;
