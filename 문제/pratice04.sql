@@ -9,6 +9,8 @@ where salary > (
 		from salaries
         where to_date = '9999-01-01')
 and to_date = '9999-01-01';
+
+
  
 -- 문제2.   
 -- 현재, 각 부서별로 최고의 급여를 받는 사원의 사번, 이름, 부서 연봉을 조회하세요. 
@@ -66,6 +68,7 @@ and de.dept_no = A.dept_no
 and s.salary > A.avg_salary
 order by s.salary desc;
 
+        
 -- where  : 왜안되지... 어떻게 해야할까
 select e.emp_no, concat(e.first_name,' ',e.last_name), s.salary
 from employees e, salaries s, dept_emp de
@@ -95,7 +98,7 @@ and de.dept_no = A.dept_no
 and de.dept_no = d.dept_no
 and de.to_date='9999-01-01';
 
-
+        
 -- 문제5.
 -- 현재, 평균연봉이 가장 높은 부서의 사원들의 사번, 이름, 직책, 연봉을 조회하고 연봉 순으로 출력하세요.
 select e.emp_no, concat(e.first_name,' ',e.last_name), t.title, s.salary, de.dept_no
@@ -111,6 +114,9 @@ and de.dept_no = (select de.dept_no
 					group by de.dept_no
 					order by avg(s.salary) desc
 					limit 1)
+and s.to_date = '9999-01-01'
+and de.to_date = '9999-01-01'
+and t.to_date = '9999-01-01'
 order by s.salary desc;
 
 
@@ -130,7 +136,7 @@ and de.dept_no = (select d.dept_no
 					order by avg(s.salary) desc
 					limit 1)
 group by d.dept_name;
-										
+
 
 -- 문제7.
 -- 평균 연봉이 가장 높은 직책?
@@ -162,7 +168,8 @@ and de.dept_no = d.dept_no
 and de.dept_no = A.dept_no
 and s.to_date = '9999-01-01'
 and de.to_date = '9999-01-01'
-and s.salary > A.msalary;
+and s.salary > A.msalary
+order by employee_salary desc;
                                                 
 
 -- 부서의 매니저
@@ -172,7 +179,6 @@ where dm.emp_no = e.emp_no
 and e.emp_no = s.emp_no
 and dm.to_date = '9999-01-01'
 and s.to_date = '9999-01-01' ;
-
 
 
 

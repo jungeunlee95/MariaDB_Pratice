@@ -225,9 +225,9 @@ where a.emp_no = b.emp_no;
 
 ## MySQL 데이터 타입
 
-![1557278985686](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557278985686.png)
+![1557278985686](/assets/1557278985686.png)
 
-![1557279019792](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557279019792.png)
+![1557279019792](assets/1557279019792.png)
 
 > - 보통 Varchar쓰고 4000byte 넘어갈 것 같으면 Text 쓰면 됨
 >
@@ -274,7 +274,7 @@ select * from member;
 
 > **자동암호화**
 >
-> ![1557280197138](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557280197138.png)
+> ![1557280197138](assets/1557280197138.png)
 
 
 
@@ -339,7 +339,7 @@ delete from user where no = 1;
 - 자바 프로그램내에서 SQL문을 실행하기 위한 자바 API
 - SQL과 프로그래밍 언어의 통합 접근 중 한 형태
 
-![1557291909119](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557291909119.png)
+![1557291909119](assets/1557291909119.png)
 
 ------
 
@@ -349,17 +349,17 @@ delete from user where no = 1;
 
 **new java project - jdbc**
 
-![1557288272463](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557288272463.png)
+![1557288272463](assets/1557288272463.png)
 
-![1557288316079](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557288316079.png)
+![1557288316079](assets/1557288316079.png)
 
 **Add External JARs**
 
-![1557288378089](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557288378089.png)
+![1557288378089](assets/1557288378089.png)
 
 **라이브러리 추가**
 
-![1557288403772](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557288403772.png)
+![1557288403772](assets/1557288403772.png)
 
 ------
 
@@ -455,7 +455,7 @@ public class ConnectionTest {
 
 > sql문은 workbench에서 미리 날리고, 확인한 뒤 가져오자
 >
-> ![1557289668140](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557289668140.png)
+> ![1557289668140](assets/1557289668140.png)
 
 ```java
 package test;
@@ -870,7 +870,7 @@ public class MyDriverTest {
 >
 > static으로 mydb라는 이름으로 driver와 map형식으로 묶여있음
 >
-> ![1557295523848](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557295523848.png)
+> ![1557295523848](assets/1557295523848.png)
 >
 > 만약 전에 사용하던 이름으로 다시 쓰고 싶으면
 >
@@ -941,7 +941,7 @@ public Connection connect(String url, Properties info) throws SQLException {
 
 ### - VO
 
-![1557296086733](D:/cafe24%20%EC%88%98%EC%97%85/0%20%ED%95%84%EA%B8%B0/week03/day02/assets/1557296086733.png)
+![1557296086733](assets/1557296086733.png)
 
 
 
